@@ -1,0 +1,30 @@
+defaultNamespace: onyx
+helm:
+  releases:
+    - name: traefik
+      namespace: traefik
+      repo: https://traefik.github.io/charts
+      chart: traefik
+      valuesFiles:
+        - "base/traefik/values.yaml"
+
+    - name: postgresql
+      namespace: database
+      repo: https://charts.bitnami.com/bitnami
+      chart: postgresql
+      valuesFiles:
+        - "base/postgresql/values.yaml"
+
+    - name: keycloak
+      namespace: auth
+      repo: https://charts.bitnami.com/bitnami
+      chart: keycloak
+      valuesFiles:
+        - "base/keycloak/values.yaml"
+
+    - name: vault
+      namespace: vault
+      repo: https://helm.releases.hashicorp.com
+      chart: vault
+      valuesFiles:
+        - "base/vault/values.yaml"
