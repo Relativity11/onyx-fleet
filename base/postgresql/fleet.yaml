@@ -1,0 +1,15 @@
+namespace: database
+helm:
+  releaseName: postgresql
+  repo: https://charts.bitnami.com/bitnami
+  chart: postgresql
+  values:
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 10Gi
+    auth:
+      username: keycloak
+      password: secretpassword
+      database: keycloak

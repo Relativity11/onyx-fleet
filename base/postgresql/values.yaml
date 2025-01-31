@@ -1,9 +1,0 @@
-primary:
-  persistence:
-    enabled: true
-    storageClass: longhorn
-    size: 10Gi
-auth:
-  username: keycloak
-  password: secretpassword
-  database: keycloak

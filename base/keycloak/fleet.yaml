@@ -1,0 +1,17 @@
+namespace: auth
+helm:
+  releaseName: keycloak
+  repo: https://charts.bitnami.com/bitnami
+  chart: keycloak
+  values:
+    postgresql:
+      enabled: false
+    externalDatabase:
+      host: postgresql.database.svc.cluster.local
+      user: keycloak
+      password: secretpassword
+      database: keycloak
+    service:
+      type: ClusterIP
+      ports:
+        http: 8080
