@@ -3,6 +3,7 @@ helm:
   releaseName: traefik
   repo: https://traefik.github.io/charts
   chart: traefik
+  version: 34.2.0
   values:
     service:
       type: NodePort

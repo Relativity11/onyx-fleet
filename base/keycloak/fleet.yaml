@@ -3,6 +3,7 @@ helm:
   releaseName: keycloak
   repo: https://charts.bitnami.com/bitnami
   chart: keycloak
+  version: 24.4.8
   values:
     postgresql:
       enabled: false
