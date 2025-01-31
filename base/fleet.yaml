@@ -1,4 +1,4 @@
-namespace: vault
+defaultnamespace: vault
 helm:
   releaseName: vault
   repo: https://helm.releases.hashicorp.com
