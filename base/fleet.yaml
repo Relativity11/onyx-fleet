@@ -1,20 +1,38 @@
-defaultnamespace: vault
+defaultNamespace: vault
 helm:
-  releaseName: vault
-  repo: https://helm.releases.hashicorp.com
-  chart: vault
-  version: 0.29.1
-  values:
-    server:
-      ha:
-        enabled: false
-      dataStorage:
-        enabled: true
-        storageClass: longhorn
-        size: 5Gi
-      standalone:
-        enabled: true
-        config: |
-          storage "postgresql" {
-            connection_url = "postgresql://keycloak:secretpassword@postgresql.database.svc.cluster.local/keycloak?sslmode=disable"
-          }
+  releases:
+    - name: vault
+      namespace: vault
+      repo: https://helm.releases.hashicorp.com
+      chart: vault
+      version: 0.29.1
+      values:
+        server:
+          ha:
+            enabled: false
+          dataStorage:
+            enabled: true
+            storageClass: longhorn
+            size: 5Gi
+          standalone:
+            enabled: true
+            config: |
+              storage "postgresql" {
+                connection_url = "postgresql://keycloak:secretpassword@postgresql.database.svc.cluster.local/keycloak?sslmode=disable"
+              }
+
+    - name: postgresql
+      namespace: database  # Separate namespace for PostgreSQL
+      repo: https://charts.bitnami.com/bitnami
+      chart: postgresql
+      version: 16.4.5
+      values:
+        primary:
+          persistence:
+            enabled: true
+            storageClass: longhorn
+            size: 10Gi
+        auth:
+          username: keycloak
+          password: secretpassword
+          database: keycloak
