@@ -18,7 +18,3 @@ helm:
           storage "postgresql" {
             connection_url = "postgresql://keycloak:secretpassword@postgresql.database.svc.cluster.local/keycloak?sslmode=disable"
           }
-
-# ✅ Deploy the Vault IngressRoute automatically
-resources:
-  - ingressroute.yaml
