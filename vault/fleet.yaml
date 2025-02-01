@@ -7,10 +7,6 @@ server:
     size: 5Gi
   standalone:
     enabled: true
-    config: |
-      storage "postgresql" {
-        connection_url = "postgresql://keycloak:secretpassword@postgresql.database.svc.cluster.local/keycloak?sslmode=disable"
-      }
 service:
   type: NodePort
   ports:
