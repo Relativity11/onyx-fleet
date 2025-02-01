@@ -1,6 +1,6 @@
-replicas: 1  # No HA for now
+replicas: 1
 postgresql:
-  enabled: false  # We are using an external database
+  enabled: false
 externalDatabase:
   host: postgresql.database.svc.cluster.local
   port: 5432
@@ -8,14 +8,11 @@ externalDatabase:
   username: keycloak
   password: secretpassword
 service:
-  type: ClusterIP
+  type: NodePort
   ports:
-    http: 8080
+    http: 
+      nodePort: 32090
+    https:
+      nodePort: 32443
 ingress:
-  enabled: true
-  ingressClassName: traefik
-  rules:
-    - host: keycloak.local
-      paths:
-        - path: /
-          pathType: Prefix
+  enabled: false
