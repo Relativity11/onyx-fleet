@@ -14,5 +14,3 @@ helm:
       existingSecret: postgresql-secret
     service:
       type: ClusterIP
-resources:
-  - secret.yaml
