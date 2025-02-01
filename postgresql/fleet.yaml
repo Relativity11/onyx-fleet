@@ -1,0 +1,17 @@
+defaultNamespace: database
+helm:
+  releaseName: postgresql
+  repo: https://cloudnative-pg.github.io/charts
+  chart: cloudnative-pg
+  version: latest  # Replace with actual version from `helm search repo cnpg`
+  values:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 10Gi
+    database:
+      name: keycloak
+      user: keycloak
+      password: secretpassword  # This will be replaced with a secret later
+    service:
+      type: ClusterIP
