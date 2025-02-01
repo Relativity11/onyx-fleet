@@ -1,0 +1,16 @@
+defaultNamespace: database
+helm:
+  releaseName: postgresql
+  repo: https://charts.bitnami.com/bitnami
+  chart: postgresql
+  version: 16.4.5
+  values:
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 10Gi
+    auth:
+      existingSecret: postgresql-secret  # ✅ Tell PostgreSQL to use the secret
+    service:
+      type: ClusterIP
