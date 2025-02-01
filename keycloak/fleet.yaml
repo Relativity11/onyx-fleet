@@ -1,0 +1,17 @@
+defaultNamespace: auth
+helm:
+  releaseName: keycloak
+  repo: https://charts.bitnami.com/bitnami
+  chart: keycloak
+  values:
+    auth:
+      adminUser: admin
+      existingSecret: keycloak-secret
+    externalDatabase:
+      enabled: true
+      existingSecret: postgresql-secret
+      host: postgresql-rw.database.svc.cluster.local
+      database: keycloak
+      user: keycloak
+    service:
+      type: ClusterIP

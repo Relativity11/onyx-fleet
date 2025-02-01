@@ -9,8 +9,6 @@ helm:
       storageClass: longhorn
       size: 10Gi
     database:
-      name: keycloak
-      user: keycloak
-      password: secretpassword  # This will be replaced with a secret later
+      existingSecret: postgresql-secret
     service:
       type: ClusterIP
