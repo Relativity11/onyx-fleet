@@ -11,6 +11,8 @@ helm:
         storageClass: longhorn
         size: 10Gi
     auth:
-      existingSecret: postgresql-secret  # ✅ Tell PostgreSQL to use the secret
+      existingSecret: postgresql-secret
     service:
       type: ClusterIP
+resources:
+  - secret.yaml
