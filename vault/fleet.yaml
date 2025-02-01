@@ -1,0 +1,16 @@
+defaultNamespace: vault
+helm:
+  releaseName: vault
+  repo: https://helm.releases.hashicorp.com
+  chart: vault
+  version: 0.29.1  # Latest stable release
+  values:
+    server:
+      ha:
+        enabled: false
+      dataStorage:
+        enabled: true
+        storageClass: longhorn
+        size: 5Gi
+      standalone:
+        enabled: true
