@@ -3,7 +3,6 @@ helm:
   releaseName: postgresql
   repo: https://cloudnative-pg.github.io/charts
   chart: cloudnative-pg
-  version: latest  # Replace with actual version from `helm search repo cnpg`
   values:
     persistence:
       enabled: true
